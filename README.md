@@ -1,2 +1,5 @@
-# data-structure-in-c
-A library of core data structures implemented from scratch in C, with focus on memory management and performance.
+# Data Structures Library in C
+
+This project implements fundamental data structures from scratch in C.
+The goal is to deeply understand memory management, pointers,
+and time–space trade-offs.
