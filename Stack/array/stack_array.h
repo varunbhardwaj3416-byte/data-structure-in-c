@@ -1,7 +1,7 @@
 #ifndef STACK_H
 #define STACK_H
 
-typedef struct Stack { // stack implemented using normal approach 
+typedef struct Stack { // stack implemented using array 
     int * stack ; 
     int capacity ; 
     int top ; 
