@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "stack_array.h"
-// functions for normal stack
+// functions for normal stack 
 
 struct Stack * createStack(int capacity){
     Stack * new = (Stack *) malloc(sizeof(Stack)) ; 
