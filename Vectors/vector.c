@@ -16,11 +16,9 @@ void shrink(Vector * vector) {
     if (!vector) return ; 
     int * new = realloc(vector -> data , vector -> capacity / 2) ; 
     if (!new) {
-        printf("Shrinking failed\n") ;
         return ;  
         // else shrinking succeed
     }
-    printf("Vector shrinked\n") ; 
 }
 
 void popBack(Vector * vector , int * found , int * data) {
@@ -41,21 +39,21 @@ void pushBack(Vector * vector , int data) {
     vector -> data [vector -> size] = data ; 
     vector -> size += 1 ; 
 }
-int get(Vector * vector ,int index , int * data) {  // function would return 1 if value found else 0 , if 1 then we check at data
-    if (!vector || !data) return 0; 
+void get(Vector * vector ,int index , int * data , int * found) {  // *found = 1 if index is valid else 0
+    if (!vector || !data) return ; 
     if (index < vector -> size){
         *data = vector -> data [index] ; 
-        return 1 ; 
+        return  ; 
     }
-    return 0 ; 
+    return  ; 
 }
-int set (Vector * vector , int index , int value) {
-    if (!vector) return 0 ; 
+void set (Vector * vector , int index , int value , int * status) {
+    if (!vector) return  ;                     // value of status would be 1 if index sent was valid 
     if (index < vector -> size) {
         vector -> data[index] = value ; 
-        return 1 ; 
+        return  ; 
     }
-    return 0 ; 
+    return  ; 
 } 
 int capacity(Vector * vector) {
     if (!vector) return 0 ; 
@@ -69,23 +67,13 @@ void doubleVector(Vector * vector) {
     if (!vector) return ;
     int * new = realloc(vector -> data , vector -> capacity * 2) ; 
     if (!new) {
-        printf("Doubling of Vector failed . Heap is full , Try again .\n") ;  
         return ; 
     }
-    printf("Vector Doubled\n") ; 
   
 }
 void freeVector(Vector * vector) {
     if(!vector) return ; 
     free(vector -> data) ; 
     free(vector) ;
-    printf("Vector Freed\n") ; 
 }
-void display(Vector * vector) {
-    if (!vector) return  ; 
-    for (int i = 0 ; i < vector -> size ; ++i) {
-        printf("%d\t" , vector -> data[i]) ; 
-    }
-    printf("\n") ; 
 
-}
